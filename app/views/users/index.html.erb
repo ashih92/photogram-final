@@ -205,13 +205,24 @@
           <%= time_ago_in_words(a_user.updated_at) %> ago
         </td>
 
+
+       
+
+    
+
         <% if current_user != nil%>
           <td>
             <a href="/follow_requests/<%= a_user.id %>">
+              <input type="hidden" name="query_recipient_id" value="<%= a_user.id %>">
               <button>follow</button>
             </a>
           </td>
         <% else %>
+          <td>
+            <a href="/follow_requests/<%= a_user.id %>">
+            Unfollow
+          </a>
+          </td>
         <% end %>
 
 
