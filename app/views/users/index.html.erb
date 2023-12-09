@@ -145,6 +145,13 @@
           Updated at
         </th>
 
+        <% if current_user != nil%>
+          <th>
+            follow/unfollow
+          </th>
+        <% else %>
+        <% end %>
+
         <th>
         </th>
       </tr>
@@ -172,7 +179,7 @@
         </td>
 
         <td>
-          <%= a_user.private %>
+          <%= a_user.private ? 'Yes' : 'No' %>
         </td>
 
         <td>
@@ -197,6 +204,18 @@
         <td>
           <%= time_ago_in_words(a_user.updated_at) %> ago
         </td>
+
+        <% if current_user != nil%>
+          <td>
+            <a href="/follow_requests/<%= a_user.id %>">
+              <button>follow</button>
+            </a>
+          </td>
+        <% else %>
+        <% end %>
+
+
+
 
         <td>
           <a href="/users/<%= a_user.id %>">

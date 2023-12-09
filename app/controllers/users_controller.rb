@@ -29,7 +29,8 @@ class UsersController < ApplicationController
     the_user.reset_password_sent_at = params.fetch("query_reset_password_sent_at")
     the_user.reset_password_token = params.fetch("query_reset_password_token")
     the_user.username = params.fetch("query_username")
-
+    
+    
     if the_user.valid?
       the_user.save
       redirect_to("/users", { :notice => "User created successfully." })

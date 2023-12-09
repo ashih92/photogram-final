@@ -14,7 +14,10 @@
       Add a new photo
     </h2>
 
-    <form action="/insert_photo" method="post">
+    
+    
+    <% if current_user != nil %>
+      <form action="/insert_photo" method="photo">
       <div>
         <label for="caption_box">
           Caption
@@ -55,13 +58,20 @@
         <input type="text" id="owner_id_box" name="query_owner_id">
       </div>
 
+      
+      
       <button>
         Add photo
       </button>
+      <form>image</form>
+    
     </form>
+    <% else %>
+      <p>You must <a href="/users/sign_in">sign in</a> to add a photo.</p>
+    <% end %>
   </div>
 </div>
-
+<form>image</form>
 <hr>
 <div>
   <div>

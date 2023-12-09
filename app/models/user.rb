@@ -23,7 +23,7 @@
 #  username_devise               :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
-#
+#  user_id                       :integer
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
@@ -32,6 +32,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :sent_friend_requests, class_name: 'FriendRequest', foreign_key: 'sender_id'
+  has_many :received_friend_requests, class_name: 'FriendRequest', foreign_key: 'recipient_id'
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+        
 end
