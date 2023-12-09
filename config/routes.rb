@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root to: "users#index"
   # Routes for the Like resource:
 
   # CREATE
@@ -97,7 +99,7 @@ Rails.application.routes.draw do
   # Routes for the User resource:
 
   #root
-  get("/", { :controller => "users", :action => "index" })
+  # get("/", { :controller => "users", :action => "index" })
   # CREATE
   post("/insert_user", { :controller => "users", :action => "create" })
           
