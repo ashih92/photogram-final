@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Photogram #<%= @the_photogram.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/photograms">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_photogram/<%= @the_photogram.id %>">
+          Delete photogram
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_photogram.user %>
+      </dd>
+
+      <dt>
+        Comment
+      </dt>
+      <dd>
+        <%= @the_photogram.comment %>
+      </dd>
+
+      <dt>
+        Follow request
+      </dt>
+      <dd>
+        <%= @the_photogram.follow_request %>
+      </dd>
+
+      <dt>
+        Like
+      </dt>
+      <dd>
+        <%= @the_photogram.like %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_photogram.photo %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photogram.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photogram.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit photogram
+    </h2>
+
+    <form action="/modify_photogram/<%= @the_photogram.id %>"  method="post" >
+      <div>
+        <label for="user_box">
+          User
+        </label>
+
+        <input type="text" id="user_box" name="query_user" value="<%= @the_photogram.user %>">
+      </div>
+
+      <div>
+        <label for="comment_box">
+          Comment
+        </label>
+
+        <textarea id="comment_box" name="query_comment"><%= @the_photogram.comment %></textarea>
+      </div>
+
+      <div>
+        <label for="follow_request_box">
+          Follow request
+        </label>
+
+        <input type="text" id="follow_request_box" name="query_follow_request" value="<%= @the_photogram.follow_request %>">
+      </div>
+
+      <div>
+        <label for="like_box">
+          Like
+        </label>
+
+        <input type="text" id="like_box" name="query_like" value="<%= @the_photogram.like %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_photogram.photo %>">
+      </div>
+
+      <button>
+        Update photogram
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
