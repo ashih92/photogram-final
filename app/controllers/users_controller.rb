@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action(:authenticate_user!, { :only => [:index] })
   def index
     matching_users = User.all
 
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
   def create
     the_user = User.new
     the_user.comments_count = params.fetch("query_comments_count")
-    the_user.email = params.fetch("query_email")
+    #the_user.email = params.fetch("query_email")
     the_user.encrypted_password = params.fetch("query_encrypted_password")
     the_user.likes_count = params.fetch("query_likes_count")
     the_user.private = params.fetch("query_private", false)
